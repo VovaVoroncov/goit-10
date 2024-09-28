@@ -3,7 +3,10 @@ package ua.goit.hw10.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
+@Table(name = "client")
 @Data
 public class Client {
 
@@ -13,4 +16,7 @@ public class Client {
 
     @Column
     private String name;
+
+    @OneToMany(mappedBy = "client")
+    private List<Ticket> tickets;
 }
